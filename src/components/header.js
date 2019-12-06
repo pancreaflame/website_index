@@ -1,8 +1,10 @@
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import { injectIntl, Link } from "gatsby-plugin-intl"
+import LanguageSwitcher from "./languageswitcher"
 
-const Header = ({ siteTitle }) => (
+const Header = ({ intl, siteTitle }) => (
   <header
     style={{
       background: `rebeccapurple`,
@@ -27,6 +29,9 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
+      <LanguageSwitcher />
+
+      {intl.formatMessage({ id: "index.news" })}
     </div>
   </header>
 )
@@ -39,4 +44,4 @@ Header.defaultProps = {
   siteTitle: ``,
 }
 
-export default Header
+export default injectIntl(Header)

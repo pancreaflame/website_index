@@ -30,5 +30,14 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        path: `${__dirname}/public/intl`,
+        languages: [`en`, `zh`],
+        defaultLanguage: `en`,
+        redirect: true,
+      },
+    },
   ],
 }
