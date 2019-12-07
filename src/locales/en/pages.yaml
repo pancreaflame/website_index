@@ -1,4 +1,7 @@
 ---
+common:
+  notfound: Not Found
+
 index:
   open:
     title: Rehearsals
@@ -7,17 +10,19 @@ index:
 item:
   description: Description
   url: URL
-  subject: Subject
-  maincategory: Main category
-  media: Media
-  tool: Tools
-  stage: Stage
-  state: State
-  license: License
-  promotional: Promotional Article
+  subject_tag_ids: Subject
+  maincategory_tag_ids: Main category
+  publicity_tag_ids: Show
+  media_tag_ids: Media
+  tool_tag_ids: Tools
+  stage_tag_ids: Stage
+  state_tag_ids: State
+  license_tag_ids: License
+  promotional_article: Promotional Article
   dev_team: Developer
   founded_time: Founded at
   source: Data Source
   added_time: Added at
   added_by: Added by
   suggest_edit: Submit edit suggestions
+  na: N/A

@@ -1,4 +1,7 @@
 ---
+common:
+  notfound: 沒有資料
+  
 index:
   open:
     title: 中文 Repetities
@@ -7,17 +10,19 @@ index:
 item:
   description: 簡述
   url: 連結
-  subject: 議題
-  maincategory: 主要分類
-  media: 媒介
-  tool: 開發工具
-  stage: 開發階段
-  state: 目前狀態
-  license: 授權方式/版權
-  promotional: 宣傳文字
+  subject_tag_ids: 議題
+  maincategory_tag_ids: 主要分類
+  publicity_tag_ids: 顯示
+  media_tag_ids: 媒介
+  tool_tag_ids: 開發工具
+  stage_tag_ids: 開發階段
+  state_tag_ids: 目前狀態
+  license_tag_ids: 授權方式/版權
+  promotional_article: 宣傳文字
   dev_team: 開發團隊
   founded_time: 起動日期
   source: 資訊來源
   added_time: 加入時間
-  added_by: 資料提供自
+  added_by: 資料提供
   suggest_edit: 提供修改建議
+  na: 不適用

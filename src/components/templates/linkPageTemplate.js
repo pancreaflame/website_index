@@ -1,9 +1,13 @@
 import React from "react"
+import { graphql } from "gatsby"
 import { injectIntl, IntlContextConsumer } from "gatsby-plugin-intl"
+import LinkedTag from "../molecules/LinkedTag"
 import GeneralPageTemplate from "./generalPageTemplate"
 
-const LinkPageTemplate = ({ pageContext, intl }) => {
+const LinkPageTemplate = ({ pageContext, intl, data }) => {
   const item = pageContext.item
+  const categoryObj = data.allApCategoryCsv.edges
+  const tagObj = data.allApTagCsv.edges
 
   return (
     <GeneralPageTemplate title={item.cname || item.ename}>
@@ -22,6 +26,8 @@ const LinkPageTemplate = ({ pageContext, intl }) => {
               <div>{"Image"}</div>
               <h2>{item.cname}</h2>
               <p>{item.ename}</p>
+              {/* <p>{JSON.stringify(categoryObj)}</p>
+              <p>{JSON.stringify(tagObj)}</p> */}
             </div>
 
             <div
@@ -34,84 +40,113 @@ const LinkPageTemplate = ({ pageContext, intl }) => {
               <dl>
                 <dt>
                   <span>
-                    {intl.formatMessage({ id: "item.description" })}:{" "}
+                    {`${intl.formatMessage({ id: "item.description" })}: `}
                   </span>
                 </dt>
                 <dd>{item.description}</dd>
 
                 <dt>
-                  <span>{intl.formatMessage({ id: "item.url" })}: </span>
+                  <span>{`${intl.formatMessage({ id: "item.url" })}: `}</span>
                 </dt>
                 <dd>{item.url}</dd>
 
-                <dt>
-                  <span>{intl.formatMessage({ id: "item.subject" })}: </span>
-                </dt>
-                <dd>{item.subject_tag_ids}</dd>
+                {categoryObj &&
+                  categoryObj.map((category, row) => {
+                    let cate = `${category.node.id}_tag_ids`
+
+                    return (
+                      <React.Fragment key={row}>
+                        <dt>
+                          <span>
+                            {`${intl.formatMessage({ id: `item.${cate}` })}: `}
+                          </span>
+                        </dt>
+                        <dd>
+                          {item[cate] &&
+                            item[cate].split(";").map((datatag, index) => {
+                              let theTag = ""
+                              let tagName = ""
+                              let cateName = category.node.id
+                              let filteredTag = tagObj.filter(
+                                tag => tag.node.id === datatag
+                              )
+
+                              if (!filteredTag.length) {
+                                return (
+                                  <div>
+                                    <p>
+                                      {intl.formatMessage({
+                                        id: `common.notfound`,
+                                      })}
+                                    </p>
+                                    <p>{datatag}</p>
+                                    <p>{JSON.stringify(filteredTag)}</p>
+                                  </div>
+                                )
+                              }
+
+                              if (item[cate].length > 0) {
+                                theTag = filteredTag[0].node
+                                tagName = theTag[currentLocale]
+                              } else {
+                                tagName = intl.formatMessage({ id: `item.na` })
+                                cateName = ""
+                              }
+
+                              return (
+                                <LinkedTag
+                                  value={tagName}
+                                  cate={cateName}
+                                  key={index}
+                                />
+                              )
+                            })}
+                        </dd>
+                      </React.Fragment>
+                    )
+                  })}
 
                 <dt>
                   <span>
-                    {intl.formatMessage({ id: "item.maincategory" })}:{" "}
-                  </span>
-                </dt>
-                <dd>{item.maincategory_tag_ids}</dd>
-
-                <dt>
-                  <span>{intl.formatMessage({ id: "item.media" })}: </span>
-                </dt>
-                <dd>{item.media_tag_ids}</dd>
-
-                <dt>
-                  <span>{intl.formatMessage({ id: "item.tool" })}: </span>
-                </dt>
-                <dd>{item.tool_tag_ids}</dd>
-
-                <dt>
-                  <span>{intl.formatMessage({ id: "item.stage" })}: </span>
-                </dt>
-                <dd>{item.stage_tag_ids}</dd>
-
-                <dt>
-                  <span>{intl.formatMessage({ id: "item.state" })}: </span>
-                </dt>
-                <dd>{item.state_tag_ids}</dd>
-
-                <dt>
-                  <span>{intl.formatMessage({ id: "item.license" })}: </span>
-                </dt>
-                <dd>{item.license_tag_ids}</dd>
-
-                <dt>
-                  <span>
-                    {intl.formatMessage({ id: "item.promotional" })}:{" "}
+                    {`${intl.formatMessage({
+                      id: "item.promotional_article",
+                    })}: `}
                   </span>
                 </dt>
                 <dd>{item.promotional_article}</dd>
 
                 <dt>
-                  <span>{intl.formatMessage({ id: "item.dev_team" })}: </span>
+                  <span>
+                    {`${intl.formatMessage({ id: "item.dev_team" })}: `}
+                  </span>
                 </dt>
                 <dd>{item.dev_team}</dd>
 
                 <dt>
                   <span>
-                    {intl.formatMessage({ id: "item.founded_time" })}:{" "}
+                    {`${intl.formatMessage({ id: "item.founded_time" })}: `}
                   </span>
                 </dt>
                 <dd>{item.founded_time}</dd>
 
                 <dt>
-                  <span>{intl.formatMessage({ id: "item.source" })}: </span>
+                  <span>{`${intl.formatMessage({
+                    id: "item.source",
+                  })}: `}</span>
                 </dt>
                 <dd>{item.source}</dd>
 
                 <dt>
-                  <span>{intl.formatMessage({ id: "item.added_time" })}: </span>
+                  <span>{`${intl.formatMessage({
+                    id: "item.added_time",
+                  })}: `}</span>
                 </dt>
                 <dd>{item.added_time}</dd>
 
                 <dt>
-                  <span>{intl.formatMessage({ id: "item.added_by" })}: </span>
+                  <span>{`${intl.formatMessage({
+                    id: "item.added_by",
+                  })}: `}</span>
                 </dt>
                 <dd>{item.added_by}</dd>
               </dl>
@@ -128,3 +163,31 @@ const LinkPageTemplate = ({ pageContext, intl }) => {
 }
 
 export default injectIntl(LinkPageTemplate)
+
+export const LinkPageQuery = graphql`
+  query {
+    allApCategoryCsv {
+      edges {
+        node {
+          id
+          zh
+          en
+          abbr
+        }
+      }
+    }
+    allApTagCsv {
+      edges {
+        node {
+          id
+          parent_id
+          category_id
+          zh
+          en
+          icon
+          example
+        }
+      }
+    }
+  }
+`
