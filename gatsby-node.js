@@ -42,14 +42,44 @@ exports.onPreBootstrap = () => {
 
 function loadTranslationObject(languageCode) {
   const srcPath = path.join(__dirname, `/src/locales/${languageCode}/`)
-  const translationObjects = fs
-    .readdirSync(srcPath)
-    .map(file =>
-      yaml.load(fs.readFileSync(path.join(srcPath, file)), {
-        encoding: "utf-8",
-      })
-    )
+  const translationObjects = fs.readdirSync(srcPath).map(file =>
+    yaml.load(fs.readFileSync(path.join(srcPath, file)), {
+      encoding: "utf-8",
+    })
+  )
   return Object.assign({}, ...translationObjects)
+}
+
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
+  return new Promise((resolve, reject) => {
+    graphql(`
+      {
+        allApLinkCsv {
+          edges {
+            node {
+              id
+              cname
+              ename
+            }
+          }
+        }
+      }
+    `).then(result => {
+      result.data.allApLinkCsv.edges.forEach(({ node }) => {
+        createPage({
+          path: `/link/${node.id}/`,
+          component: path.resolve(
+            `./src/components/templates/linkPageTemplate.js`
+          ),
+          context: {
+            item: node,
+          },
+        })
+      })
+      resolve()
+    })
+  })
 }
 
 exports.onCreateNode = ({ node }) => {

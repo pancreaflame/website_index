@@ -30,9 +30,11 @@ const IndexPage = ({ intl, data }) => {
             return (
               <li key={index}>
                 <p>
-                  <span>{item.node.id}</span>
-                  <span>=></span>
-                  <span>{item.node.cname}</span>
+                  <Link to={`/link/${item.node.id}`}>
+                    <span>{item.node.id}</span>
+                    <span>=></span>
+                    <span>{item.node.cname}</span>
+                  </Link>
                 </p>
               </li>
             )
@@ -51,6 +53,7 @@ export const IndexQuery = graphql`
         node {
           id
           cname
+          ename
         }
       }
     }
