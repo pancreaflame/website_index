@@ -28,11 +28,10 @@ export default function PageTemplate({ title, children }) {
         <div className="container text-page-container pb-2">
           <div
             style={{
-              paddingTop: "60px",
               flex: "auto",
             }}
           >
-            <h1 className="border-bottom text-center mb-4">{title}</h1>
+            {/* <h1 className="border-bottom text-center mb-4">{title}</h1> */}
             {children}
           </div>
         </div>

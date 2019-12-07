@@ -61,6 +61,22 @@ exports.createPages = ({ graphql, actions }) => {
               id
               cname
               ename
+              description
+              url
+              subject_tag_ids
+              maincategory_tag_ids
+              publicity_tag_ids
+              media_tag_ids
+              tool_tag_ids
+              stage_tag_ids
+              state_tag_ids
+              license_tag_ids
+              promotional_article
+              dev_team
+              founded_time
+              source
+              added_time
+              added_by
             }
           }
         }

@@ -3,3 +3,21 @@ index:
   open:
     title: Rehearsals
   news: news
+
+item:
+  description: Description
+  url: URL
+  subject: Subject
+  maincategory: Main category
+  media: Media
+  tool: Tools
+  stage: Stage
+  state: State
+  license: License
+  promotional: Promotional Article
+  dev_team: Developer
+  founded_time: Founded at
+  source: Data Source
+  added_time: Added at
+  added_by: Added by
+  suggest_edit: Submit edit suggestions
