@@ -1,8 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { injectIntl, IntlContextConsumer } from "gatsby-plugin-intl"
+import Linkify from "react-linkify"
 import LinkedTag from "../molecules/LinkedTag"
 import GeneralPageTemplate from "./generalPageTemplate"
+
+const componentDecorator = (href, text, key) => (
+  <a href={href} key={key} rel="noopener noreferrer" target="_blank">
+    {text}
+  </a>
+)
 
 const LinkPageTemplate = ({ pageContext, intl, data }) => {
   const item = pageContext.item
@@ -43,12 +50,20 @@ const LinkPageTemplate = ({ pageContext, intl, data }) => {
                     {`${intl.formatMessage({ id: "item.description" })}: `}
                   </span>
                 </dt>
-                <dd>{item.description}</dd>
+                <dd>
+                  <Linkify componentDecorator={componentDecorator}>
+                    {item.description}
+                  </Linkify>
+                </dd>
 
                 <dt>
                   <span>{`${intl.formatMessage({ id: "item.url" })}: `}</span>
                 </dt>
-                <dd>{item.url}</dd>
+                <dd>
+                  <Linkify componentDecorator={componentDecorator}>
+                    {item.url}
+                  </Linkify>
+                </dd>
 
                 {categoryObj &&
                   categoryObj.map((category, row) => {
@@ -113,14 +128,22 @@ const LinkPageTemplate = ({ pageContext, intl, data }) => {
                     })}: `}
                   </span>
                 </dt>
-                <dd>{item.promotional_article}</dd>
+                <dd>
+                  <Linkify componentDecorator={componentDecorator}>
+                    {item.promotional_article}
+                  </Linkify>
+                </dd>
 
                 <dt>
                   <span>
                     {`${intl.formatMessage({ id: "item.dev_team" })}: `}
                   </span>
                 </dt>
-                <dd>{item.dev_team}</dd>
+                <dd>
+                  <Linkify componentDecorator={componentDecorator}>
+                    {item.dev_team}
+                  </Linkify>
+                </dd>
 
                 <dt>
                   <span>
@@ -134,7 +157,11 @@ const LinkPageTemplate = ({ pageContext, intl, data }) => {
                     id: "item.source",
                   })}: `}</span>
                 </dt>
-                <dd>{item.source}</dd>
+                <dd>
+                  <Linkify componentDecorator={componentDecorator}>
+                    {item.source}
+                  </Linkify>
+                </dd>
 
                 <dt>
                   <span>{`${intl.formatMessage({
