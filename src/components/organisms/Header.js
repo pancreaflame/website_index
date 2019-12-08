@@ -11,6 +11,7 @@ const Header = ({ intl, siteTitle }) => (
       marginBottom: `1.45rem`,
     }}
   >
+    <Link to={`/`}>Logo</Link>
     <div
       style={{
         margin: `0 auto`,
