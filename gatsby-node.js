@@ -81,20 +81,52 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-    `).then(result => {
-      result.data.allApLinkCsv.edges.forEach(({ node }) => {
-        createPage({
-          path: `/link/${node.id}/`,
-          component: path.resolve(
-            `./src/components/templates/linkPageTemplate.js`
-          ),
-          context: {
-            item: node,
-          },
+    `)
+      .then(result => {
+        result.data.allApLinkCsv.edges.forEach(({ node }) => {
+          createPage({
+            path: `/link/${node.id}/`,
+            component: path.resolve(
+              `./src/components/templates/linkPageTemplate.js`
+            ),
+            context: {
+              item: node,
+            },
+          })
         })
       })
-      resolve()
-    })
+      .then((newsResolve, newsReject) => {
+        graphql(`
+          {
+            allApTagCsv {
+              edges {
+                node {
+                  id
+                  parent_id
+                  category_id
+                  zh
+                  en
+                  icon
+                  example
+                }
+              }
+            }
+          }
+        `).then(result => {
+          result.data.allApTagCsv.edges.forEach(({ node }) => {
+            createPage({
+              path: `/${node.category_id}/${node.id}/`,
+              component: path.resolve(
+                `./src/components/templates/tagsPageTemplate.js`
+              ),
+              context: {
+                item: node,
+              },
+            })
+          })
+          resolve()
+        })
+      })
   })
 }
 

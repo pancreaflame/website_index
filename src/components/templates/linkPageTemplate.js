@@ -77,7 +77,7 @@ const LinkPageTemplate = ({ pageContext, intl, data }) => {
                           </span>
                         </dt>
                         <dd>
-                          {item[cate] &&
+                          {item[cate] ? (
                             item[cate].split(";").map((datatag, index) => {
                               let theTag = ""
                               let tagName = ""
@@ -110,12 +110,22 @@ const LinkPageTemplate = ({ pageContext, intl, data }) => {
 
                               return (
                                 <LinkedTag
-                                  value={tagName}
+                                  value={datatag}
+                                  label={tagName}
                                   cate={cateName}
                                   key={index}
                                 />
                               )
-                            })}
+                            })
+                          ) : (
+                            <div>
+                              <p>
+                                {intl.formatMessage({
+                                  id: `common.notfound`,
+                                })}
+                              </p>
+                            </div>
+                          )}
                         </dd>
                       </React.Fragment>
                     )

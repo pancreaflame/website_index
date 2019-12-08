@@ -18,7 +18,7 @@ item:
   stage_tag_ids: Stage
   state_tag_ids: State
   license_tag_ids: License
-  promotional_article: Promotional Article
+  promotional_article: Promotional Articles
   dev_team: Developer
   founded_time: Founded at
   source: Data Source

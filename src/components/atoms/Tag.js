@@ -2,18 +2,17 @@ import React from "react"
 
 const Tag = props => {
   return (
-    <a
+    <span
       // fontSize={props.fontsize}
       // textcolor={props.textcolor}
       // backgroundcolor={props.backgroundcolor}
       // bordercolor={props.bordercolor}
       // borderwidth={props.borderwidth}
-      label={props.value}
+      label={props.label}
       // size="small"
       // onClick={props.handleClick}
       // className={props.className}
       // icon={props.icon}
-      href={`/${props.cate + "/" || ""}${props.value}`}
       style={{
         margin: "4px",
         padding: "4px 12px",
@@ -24,8 +23,8 @@ const Tag = props => {
         color: "#666",
       }}
     >
-      {props.value}
-    </a>
+      {props.label}
+    </span>
   )
 }
 
