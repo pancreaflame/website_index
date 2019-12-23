@@ -8,7 +8,7 @@ import { FaBars } from "react-icons/fa"
 const Header = ({ intl, siteTitle }) => (
   <header
     style={{
-      background: `rebeccapurple`,
+      background: `#D76890`,
       marginBottom: `1.45rem`,
     }}
   >

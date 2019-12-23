@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import { injectIntl, Link } from "gatsby-plugin-intl"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
+// import Image from "../components/image"
 import SEO from "../components/seo"
 
 const IndexPage = ({ intl, data }) => {
@@ -13,22 +13,22 @@ const IndexPage = ({ intl, data }) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Image />
-      </div>
-      <Link to="/page-2/">Go to page 2</Link>
-      <p>
-        <Link to="/cate/page-3/">Go to page 3</Link>
-      </p>
-      {intl.formatMessage({ id: "index.open.title" })}
-      <ul>
+      {/* {intl.formatMessage({ id: "index.open.title" })} */}
+      <ul style={{
+        display: "flex",
+        flexFlow: "row wrap",
+      }}>
         {data1 &&
           data1.map((item, index) => {
             return (
-              <li key={index}>
+              <li
+                key={index}
+                style={{
+                  width: "360px",
+                  margin: "10px",
+                  padding: "10px",
+                }}
+              >
                 <p>
                   <Link to={`/link/${item.node.id}`}>
                     <span>{item.node.id}</span>

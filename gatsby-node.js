@@ -33,6 +33,22 @@ exports.onPreBootstrap = () => {
     JSON.stringify(flatten(enTranslation))
   )
 
+  // Copy favicon
+  console.log("Copying favicon")
+  // Create directory structure
+  fs.existsSync(path.join(__dirname, "/public/favicon")) ||
+    fs.mkdirSync(path.join(__dirname, "/public/favicon"))
+
+  fs.copy(
+    path.join(__dirname, `/src/favicon`),
+    path.join(__dirname, "/public/favicon"),
+    function (err) {
+    if (err) {
+      return console.error(err)
+    }
+    console.log("success!")
+  });
+
   // Copy redirects
   // fs.copySync(
   //   path.join(__dirname, "/_redirects"),

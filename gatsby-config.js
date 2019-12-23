@@ -23,16 +23,26 @@ module.exports = {
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/favicon/favicon-32x32.png`, // This path is relative to the root of the site.
+        display: `standalone`,
+        icon: `src/favicon/android-chrome-512x512.png`, // This path is relative to the root of the site.
         icons: [
           {
-            src: `src/favicon/android-chrome-192x192.png`,
+            src: `/favicon/favicon-16x16.png`,
+            sizes: `16x16`,
+            type: `image/png`,
+          },
+          {
+            src: `/favicon/favicon-32x32.png`,
+            sizes: `32x32`,
+            type: `image/png`,
+          },
+          {
+            src: `/favicon/android-chrome-192x192.png`,
             sizes: `192x192`,
             type: `image/png`,
           },
           {
-            src: `src/favicon/android-chrome-512x512.png`,
+            src: `/favicon/android-chrome-512x512.png`,
             sizes: `512x512`,
             type: `image/png`,
           },
