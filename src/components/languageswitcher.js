@@ -6,8 +6,7 @@ import {
 } from "gatsby-plugin-intl"
 import React, { Component } from "react"
 import { Helmet } from "react-helmet"
-// import enFlag from './en-flag.svg'
-// import nlFlag from './nl-flag.svg'
+import { FaGlobe } from "react-icons/fa"
 
 class LanguageSwitcher extends Component {
   //   getImageByCode(code) {
@@ -17,13 +16,6 @@ class LanguageSwitcher extends Component {
   renderLanguageChoice(code, label, currentLocale) {
     return (
       <button key={code} className={"xxx"} onClick={() => changeLocale(code)}>
-        {/* <img
-          src={this.getImageByCode(code)}
-          alt={label}
-          className="mr-2"
-          width="24px"
-        /> */}
-        <p>{code}</p>
         {label}
       </button>
     )
@@ -49,12 +41,7 @@ class LanguageSwitcher extends Component {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              {/* <img
-                src={this.getImageByCode(currentLocale)}
-                alt="Language"
-                width="24px"
-              /> */}
-              <p>{currentLocale}</p>
+              <FaGlobe />
             </button>
             <div className="dropdown-menu" aria-labelledby="langDropdown">
               {languageNames.map(l =>

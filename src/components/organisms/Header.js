@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import { injectIntl, Link } from "gatsby-plugin-intl"
 import LanguageSwitcher from "../languageswitcher"
+import { FaBars } from "react-icons/fa"
 
 const Header = ({ intl, siteTitle }) => (
   <header
@@ -11,14 +12,17 @@ const Header = ({ intl, siteTitle }) => (
       marginBottom: `1.45rem`,
     }}
   >
-    <Link to={`/`}>Logo</Link>
     <div
       style={{
         margin: `0 auto`,
         maxWidth: 960,
         padding: `1.45rem 1.0875rem`,
+        display: `flex`
       }}
     >
+      <button>
+        <FaBars />
+      </button>
       <h1 style={{ margin: 0 }}>
         <Link
           to="/"
@@ -32,7 +36,7 @@ const Header = ({ intl, siteTitle }) => (
       </h1>
       <LanguageSwitcher />
 
-      {intl.formatMessage({ id: "index.news" })}
+      {/* {intl.formatMessage({ id: "index.news" })} */}
     </div>
   </header>
 )
