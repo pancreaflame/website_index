@@ -15,7 +15,7 @@ const TagsPageTemplate = ({ pageContext, intl, data }) => {
   })
 
   return (
-    <GeneralPageTemplate title={item.zh + " " + item.en}>
+    <GeneralPageTemplate title={item.zh + " " + item.en} data={data}>
       <IntlContextConsumer>
         {({ languages, language: currentLocale }) => (
           <div style={{ overflow: "hidden" }}>
@@ -97,6 +97,11 @@ export const TagsPageQuery = graphql`
           added_time
           added_by
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
       }
     }
   }

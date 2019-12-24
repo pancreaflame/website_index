@@ -6,6 +6,11 @@ index:
   open:
     title: Rehearsals
   news: news
+  by: By
+  maincate: Main category
+  media: Medium
+  subject: Subject
+  all: All
 
 item:
   description: Description

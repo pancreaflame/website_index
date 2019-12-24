@@ -2,6 +2,8 @@ import React from "react"
 import { graphql } from "gatsby"
 import { injectIntl, IntlContextConsumer } from "gatsby-plugin-intl"
 import Linkify from "react-linkify"
+import { FaChevronCircleLeft } from "react-icons/fa"
+
 import LinkedTag from "../molecules/LinkedTag"
 import GeneralPageTemplate from "./generalPageTemplate"
 
@@ -17,7 +19,7 @@ const LinkPageTemplate = ({ pageContext, intl, data }) => {
   const tagObj = data.allApTagCsv.edges
 
   return (
-    <GeneralPageTemplate title={item.cname || item.ename}>
+    <GeneralPageTemplate title={item.cname || item.ename} data={data}>
       <IntlContextConsumer>
         {({ languages, language: currentLocale }) => (
           <>
@@ -28,8 +30,36 @@ const LinkPageTemplate = ({ pageContext, intl, data }) => {
                 maxWidth: "700px",
                 width: "100%",
                 margin: "0 auto",
+                padding: "0 8px",
               }}
             >
+              <div>
+                <button
+                  style={{
+                    margin: "4px",
+                    padding: "6px 8px 4px",
+                    border: "0",
+                    borderRadius: "4px",
+                    fontSize: ".9rem",
+                    lineHeight: "1rem",
+                    backgroundColor: "#EEE",
+                  }}
+                  onClick={e => {
+                    window.history.go(-1)
+                  }}
+                >
+                  <FaChevronCircleLeft />
+                  <span
+                    style={{
+                      verticalAlign: "top",
+                    }}
+                  >
+                    {`Back${intl
+                      .formatMessage({ id: "item.description" })
+                      .slice(0, 0)}`}
+                  </span>
+                </button>
+              </div>
               <div>{"Image"}</div>
               <h2>{item.cname}</h2>
               <p>{item.ename}</p>
@@ -42,6 +72,7 @@ const LinkPageTemplate = ({ pageContext, intl, data }) => {
                 maxWidth: "400px",
                 width: "100%",
                 margin: "0 auto",
+                padding: "0 8px",
               }}
             >
               <dl>
@@ -224,6 +255,11 @@ export const LinkPageQuery = graphql`
           icon
           example
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
       }
     }
   }

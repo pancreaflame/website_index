@@ -6,7 +6,7 @@ import Header from "../organisms/Header"
 import SEO from "../atoms/SEO"
 import "./index.css"
 
-export default function PageTemplate({ title, children }) {
+export default function PageTemplate({ title, children, data }) {
   const pageTitle = title ? `${title} - ` : ""
 
   return (
@@ -23,7 +23,7 @@ export default function PageTemplate({ title, children }) {
         )}
       </Location>
       <Helmet title={pageTitle} />
-      <Header />
+      <Header siteTitle={data.site.siteMetadata.title} />
       <div className="d-flex flex-column flex-grow-1">
         <div className="container text-page-container pb-2">
           <div

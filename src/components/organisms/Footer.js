@@ -3,18 +3,19 @@ import { injectIntl, Link } from "gatsby-plugin-intl"
 
 const Footer = ({ intl }) => {
   return (
-    <nav
-      className="navbar navbar-expand-lg fixed-top border-bottom navbar-light"
+    <footer
       style={{
         background: "#fff",
-        borderTop: "3px solid #c00",
+        paddingTop: "4px",
+        borderTop: "2px solid #D76890",
       }}
     >
-      <div className="container">
-        @ 2019 yep.com
-        <Link to="/">{intl.formatMessage({ id: `index.news` })}</Link>
-      </div>
-    </nav>
+      © {new Date().getFullYear()}, Built with
+      {` `}
+      <a href="https://www.gatsbyjs.org">Gatsby</a>
+      {` `}
+      <Link to="/">{`About` + intl.formatMessage({ id: `index.news` })}</Link>
+    </footer>
   )
 }
 

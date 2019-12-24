@@ -6,6 +6,11 @@ index:
   open:
     title: 中文 Repetities
   news: 中文Nieuws
+  by: 依
+  maincate: 主要分類
+  media: 媒介
+  subject: 議題
+  all: 全部
 
 item:
   description: 簡述

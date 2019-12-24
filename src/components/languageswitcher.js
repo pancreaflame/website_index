@@ -9,9 +9,15 @@ import { Helmet } from "react-helmet"
 import { FaGlobe } from "react-icons/fa"
 
 class LanguageSwitcher extends Component {
-  //   getImageByCode(code) {
-  //     return code === 'en' ? enFlag : nlFlag
-  //   }
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      isLangMenuOn: false,
+    }
+
+    this.handleLangMenuClick = this.handleLangMenuClick.bind(this)
+  }
 
   renderLanguageChoice(code, label, currentLocale) {
     return (
@@ -19,6 +25,14 @@ class LanguageSwitcher extends Component {
         {label}
       </button>
     )
+  }
+
+  handleLangMenuClick(e) {
+    this.setState(state => {
+      return {
+        isLangMenuOn: !state.isLangMenuOn,
+      }
+    })
   }
 
   render() {
@@ -30,7 +44,12 @@ class LanguageSwitcher extends Component {
     return (
       <IntlContextConsumer>
         {({ languages, language: currentLocale }) => (
-          <li className="nav-item dropdown ml-lg-2">
+          <div
+            className=""
+            style={{
+              position: "relative",
+            }}
+          >
             <Helmet>
               <html lang={currentLocale} />
             </Helmet>
@@ -40,15 +59,32 @@ class LanguageSwitcher extends Component {
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
+              onClick={this.handleLangMenuClick}
+              style={{
+                border: "0",
+                background: "none",
+                color: "white",
+              }}
             >
               <FaGlobe />
             </button>
-            <div className="dropdown-menu" aria-labelledby="langDropdown">
-              {languageNames.map(l =>
-                this.renderLanguageChoice(l.code, l.label, currentLocale)
-              )}
-            </div>
-          </li>
+            {this.state.isLangMenuOn && (
+              <div
+                className="dropdown-menu"
+                aria-labelledby="langDropdown"
+                style={{
+                  position: "absolute",
+                  top: "100%",
+                  right: "0",
+                  textAlign: "right",
+                }}
+              >
+                {languageNames.map(l =>
+                  this.renderLanguageChoice(l.code, l.label, currentLocale)
+                )}
+              </div>
+            )}
+          </div>
         )}
       </IntlContextConsumer>
     )

@@ -42,12 +42,13 @@ exports.onPreBootstrap = () => {
   fs.copy(
     path.join(__dirname, `/src/favicon`),
     path.join(__dirname, "/public/favicon"),
-    function (err) {
-    if (err) {
-      return console.error(err)
+    function(err) {
+      if (err) {
+        return console.error(err)
+      }
+      console.log("success!")
     }
-    console.log("success!")
-  });
+  )
 
   // Copy redirects
   // fs.copySync(
