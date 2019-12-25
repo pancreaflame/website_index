@@ -50,6 +50,23 @@ exports.onPreBootstrap = () => {
     }
   )
 
+  // Copy images
+  console.log("Copying images")
+  // Create directory structure
+  fs.existsSync(path.join(__dirname, "/public/images")) ||
+    fs.mkdirSync(path.join(__dirname, "/public/images"))
+
+  fs.copy(
+    path.join(__dirname, `/src/images`),
+    path.join(__dirname, "/public/images"),
+    function(err) {
+      if (err) {
+        return console.error(err)
+      }
+      console.log("success!")
+    }
+  )
+
   // Copy redirects
   // fs.copySync(
   //   path.join(__dirname, "/_redirects"),

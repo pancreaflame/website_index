@@ -3,7 +3,7 @@ import { Location } from "@reach/router"
 import { graphql } from "gatsby"
 import { injectIntl, IntlContextConsumer, Link } from "gatsby-plugin-intl"
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from "@reach/tabs"
-import { FaSearch } from "react-icons/fa"
+// import { FaSearch } from "react-icons/fa"
 
 import Layout from "../components/layout"
 import SEO from "../components/atoms/SEO"
@@ -34,12 +34,12 @@ const IndexPage = ({ intl, data }) => {
               )}
             </Location>
 
-            <div className="search_cont">
+            {/* <div className="search_cont">
               <input type="text" placeholder="Search" />
               <button onClick={() => {}}>
                 <FaSearch />
               </button>
-            </div>
+            </div> */}
 
             {/* <div>higlights/popular</div> */}
 
