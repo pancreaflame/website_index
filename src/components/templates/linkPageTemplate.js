@@ -7,6 +7,8 @@ import { FaChevronCircleLeft } from "react-icons/fa"
 import LinkedTag from "../molecules/LinkedTag"
 import GeneralPageTemplate from "./generalPageTemplate"
 
+import "../../pages/index.css"
+
 const componentDecorator = (href, text, key) => (
   <a href={href} key={key} rel="noopener noreferrer" target="_blank">
     {text}
@@ -39,9 +41,9 @@ const LinkPageTemplate = ({ pageContext, intl, data }) => {
                   </span>
                 </button>
               </div>
-              <div>{"Image"}</div>
-              <h2>{item.cname}</h2>
-              <p>{item.ename}</p>
+              {/* <div>{"Image"}</div> */}
+              <h2 className="item_heading_cname">{item.cname}</h2>
+              {item.ename && <p>“{item.ename}”</p>}
             </div>
 
             <div className="item_content_cont">
@@ -190,9 +192,9 @@ const LinkPageTemplate = ({ pageContext, intl, data }) => {
               </dl>
             </div>
 
-            <div>
+            {/* <div>
               <button>{intl.formatMessage({ id: "item.suggest_edit" })}</button>
-            </div>
+            </div> */}
           </>
         )}
       </IntlContextConsumer>
