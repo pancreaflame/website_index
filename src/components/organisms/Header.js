@@ -15,17 +15,17 @@ const Header = ({ intl, siteTitle }) => {
   return (
     <header
       style={{
-        background: `#D76890`,
-        marginBottom: `1rem`,
+        background: "#D76890",
+        marginBottom: "1rem",
       }}
     >
       <div
         style={{
-          margin: `0 auto`,
           maxWidth: 960,
-          padding: `.5rem 1.0875rem`,
-          display: `flex`,
-          justifyContent: `space-between`,
+          height: "2.4rem",
+          margin: "0 auto",
+          display: "flex",
+          justifyContent: "space-between",
         }}
       >
         <button
@@ -33,6 +33,7 @@ const Header = ({ intl, siteTitle }) => {
           aria-expanded="false"
           onClick={open}
           style={{
+            padding: "10px",
             border: "0",
             background: "none",
             color: "white",
@@ -103,6 +104,7 @@ const Header = ({ intl, siteTitle }) => {
           <Link
             to="/"
             style={{
+              lineHeight: "2.4rem",
               color: `white`,
               textDecoration: `none`,
             }}

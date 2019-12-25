@@ -38,3 +38,11 @@ item:
   added_by: 資料提供
   suggest_edit: 提供修改建議
   na: 不適用
+
+issue:
+  title: 回報問題
+
+about:
+  title: 關於我們
+  back: 返回首頁
+  para01: 找出大家的作品和付出，活出自己的天地。

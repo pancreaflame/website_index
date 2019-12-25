@@ -47,6 +47,7 @@ class LanguageSwitcher extends Component {
           <div
             className=""
             style={{
+              display: "flex",
               position: "relative",
             }}
           >
@@ -61,6 +62,7 @@ class LanguageSwitcher extends Component {
               aria-expanded="false"
               onClick={this.handleLangMenuClick}
               style={{
+                padding: "10px",
                 border: "0",
                 background: "none",
                 color: "white",

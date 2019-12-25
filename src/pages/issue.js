@@ -2,10 +2,10 @@ import React from "react"
 // import { Link } from "gatsby";
 import { injectIntl, Link } from "gatsby-plugin-intl"
 
-import Layout from "../../components/layout"
-import SEO from "../../components/seo"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 
-const CatePage = ({ intl }) => {
+const IssuePage = ({ intl }) => {
   return (
     <Layout>
       <SEO title="Page three" />
@@ -20,4 +20,4 @@ const CatePage = ({ intl }) => {
   )
 }
 
-export default injectIntl(CatePage)
+export default injectIntl(IssuePage)
