@@ -1,9 +1,9 @@
 language: node_js
 before_script:
   - mkdir -p ./src/data
-  - sudo curl -o ./ap_category.csv https://s3.amazonaws.com/csvpastebin/uploads/7bdcc7bde978f35559ae8cbe37ae77a2/ap_category.csv | sudo mv ./ap_category.csv ./src/data
-  - sudo curl -o ./ap_link.csv https://s3.amazonaws.com/csvpastebin/uploads/0a1e5b7d1b5a849367fcd8ba9883aa6c/ap_link.csv | sudo mv ./ap_link.csv ./src/data
-  - sudo curl -o ./ap_tag.csv https://s3.amazonaws.com/csvpastebin/uploads/2ebb7fdd85b3b2b722e9645b0b8045d2/ap_tag.csv | sudo mv ./ap_tag.csv ./src/data
+  - sudo curl -o ./ap_category.csv https://s3.amazonaws.com/csvpastebin/uploads/7bdcc7bde978f35559ae8cbe37ae77a2/ap_category.csv & sudo mv ./ap_category.csv ./src/data
+  - sudo curl -o ./ap_link.csv https://s3.amazonaws.com/csvpastebin/uploads/0a1e5b7d1b5a849367fcd8ba9883aa6c/ap_link.csv & sudo mv ./ap_link.csv ./src/data
+  - sudo curl -o ./ap_tag.csv https://s3.amazonaws.com/csvpastebin/uploads/2ebb7fdd85b3b2b722e9645b0b8045d2/ap_tag.csv & sudo mv ./ap_tag.csv ./src/data
   - npm install -g gatsby-cli
 node_js:
   - "12"
