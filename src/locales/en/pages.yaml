@@ -1,8 +1,10 @@
 ---
 common:
   notfound: Not Found
+  notfoundpara01: You just hit a route that doesn&#39;t exist... the sadness.
   home: Home
   back: Back
+  backhome: Go back to Home
 
 index:
   open:
@@ -44,5 +46,4 @@ issue:
 
 about:
   title: About Us
-  back: Go back to Home
   para01: Find out the works and efforts from everyone, live in our own styles.

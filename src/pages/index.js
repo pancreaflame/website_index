@@ -1,13 +1,12 @@
 import React from "react"
+import { Location } from "@reach/router"
 import { graphql } from "gatsby"
-// import { Link } from "gatsby";
 import { injectIntl, Link } from "gatsby-plugin-intl"
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from "@reach/tabs"
 import { FaSearch } from "react-icons/fa"
 
 import Layout from "../components/layout"
-// import Image from "../components/image"
-import SEO from "../components/seo"
+import SEO from "../components/atoms/SEO"
 import TreeHome from "../components/organisms/TreeHome"
 
 import "@reach/tabs/styles.css"
@@ -19,14 +18,20 @@ const IndexPage = ({ intl, data }) => {
 
   return (
     <Layout>
-      <SEO title={intl.formatMessage({ id: "common.home" })} />
+      <Location>
+        {({ navigate, location }) => (
+          <>
+            <SEO
+              title={intl.formatMessage({ id: "common.home" })}
+              description={intl.formatMessage({ id: "common.home" })}
+              host={data.site.siteMetadata.host}
+              url={location.pathname}
+            />
+          </>
+        )}
+      </Location>
 
-      <div
-        className="search_cont"
-        style={{
-          margin: "4px auto 1rem",
-        }}
-      >
+      <div className="search_cont">
         <input type="text" placeholder="Search" />
         <button onClick={() => {}}>
           <FaSearch />
@@ -38,25 +43,25 @@ const IndexPage = ({ intl, data }) => {
       <Tabs>
         <TabList>
           <Tab>
-            <span className="tab-badge">
+            <span className="tab_badge">
               {intl.formatMessage({ id: "index.by" })}
             </span>
             {intl.formatMessage({ id: "index.maincate" })}
           </Tab>
           <Tab>
-            <span className="tab-badge">
+            <span className="tab_badge">
               {intl.formatMessage({ id: "index.by" })}
             </span>
             {intl.formatMessage({ id: "index.media" })}
           </Tab>
           <Tab>
-            <span className="tab-badge">
+            <span className="tab_badge">
               {intl.formatMessage({ id: "index.by" })}
             </span>
             {intl.formatMessage({ id: "index.subject" })}
           </Tab>
           <Tab>
-            <span className="tab-badge">
+            <span className="tab_badge">
               {intl.formatMessage({ id: "index.by" })}
             </span>
             {intl.formatMessage({ id: "index.all" })}
@@ -82,36 +87,16 @@ const IndexPage = ({ intl, data }) => {
             />
           </TabPanel>
           <TabPanel>
-            <div
-              style={{
-                border: "1px solid #DDD",
-                borderWidth: "0 1px 0 1px",
-              }}
-            >
-              <ul
-                style={{
-                  display: "flex",
-                  flexFlow: "row wrap",
-                }}
-              >
+            <div className="home_all_cont">
+              <ul className="home_all_list">
                 {itemObj &&
                   itemObj.map((item, index) => {
                     return (
-                      <li
-                        key={index}
-                        style={{
-                          maxWidth: "300px",
-                          width: "360px",
-                          margin: "0 10px 1rem",
-                          padding: "0 10px 0 0",
-                        }}
-                      >
+                      <li key={index} className="home_all_item">
                         <p>
                           <Link
                             to={`/link/${item.node.id}`}
-                            style={{
-                              borderBottom: "1px solid #c65780",
-                            }}
+                            className="home_all_link"
                           >
                             <span>{item.node.cname}</span>
                           </Link>
@@ -168,6 +153,11 @@ export const IndexQuery = graphql`
           icon
           example
         }
+      }
+    }
+    site {
+      siteMetadata {
+        host
       }
     }
   }

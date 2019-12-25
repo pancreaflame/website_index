@@ -3,6 +3,7 @@ import React from "react"
 const Tag = props => {
   return (
     <span
+      className="item_tag"
       // fontSize={props.fontsize}
       // textcolor={props.textcolor}
       // backgroundcolor={props.backgroundcolor}
@@ -13,15 +14,6 @@ const Tag = props => {
       // onClick={props.handleClick}
       // className={props.className}
       // icon={props.icon}
-      style={{
-        margin: "4px",
-        padding: "4px 12px",
-        border: "1px solid #DDD",
-        borderRadius: "20px",
-        display: "inline-block",
-        textDecoration: "none",
-        color: "#666",
-      }}
     >
       {props.label}
     </span>

@@ -44,42 +44,24 @@ class LanguageSwitcher extends Component {
     return (
       <IntlContextConsumer>
         {({ languages, language: currentLocale }) => (
-          <div
-            className=""
-            style={{
-              display: "flex",
-              position: "relative",
-            }}
-          >
+          <div className="lang_cont">
             <Helmet>
               <html lang={currentLocale} />
             </Helmet>
             <button
-              className="nav-link dropdown-toggle link-button"
+              className="nav-link dropdown-toggle link-button lang_toggle"
               id="langDropdown"
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
               onClick={this.handleLangMenuClick}
-              style={{
-                padding: "10px",
-                border: "0",
-                background: "none",
-                color: "white",
-              }}
             >
               <FaGlobe />
             </button>
             {this.state.isLangMenuOn && (
               <div
-                className="dropdown-menu"
+                className="dropdown-menu lang_menu"
                 aria-labelledby="langDropdown"
-                style={{
-                  position: "absolute",
-                  top: "100%",
-                  right: "0",
-                  textAlign: "right",
-                }}
               >
                 {languageNames.map(l =>
                   this.renderLanguageChoice(l.code, l.label, currentLocale)

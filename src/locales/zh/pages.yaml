@@ -1,9 +1,11 @@
 ---
 common:
   notfound: 沒有資料
+  notfoundpara01: 很遺憾，您所處的連結不存在。
   home: 首頁
   back: 返回
-  
+  backhome: 返回首頁
+
 index:
   open:
     title: 中文 Repetities
@@ -44,5 +46,4 @@ issue:
 
 about:
   title: 關於我們
-  back: 返回首頁
   para01: 找出大家的作品和付出，活出自己的天地。

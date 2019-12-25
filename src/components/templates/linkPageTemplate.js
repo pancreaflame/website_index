@@ -25,35 +25,16 @@ const LinkPageTemplate = ({ pageContext, intl, data }) => {
           <>
             {/* <p>{currentLocale === "zh" ? (item.cname || item.ename) : (item.ename || item.cname) }</p> */}
 
-            <div
-              style={{
-                maxWidth: "700px",
-                width: "100%",
-                margin: "0 auto",
-                padding: "0 8px",
-              }}
-            >
+            <div className="item_cont">
               <div>
                 <button
-                  style={{
-                    margin: "4px",
-                    padding: "6px 8px 4px",
-                    border: "0",
-                    borderRadius: "4px",
-                    fontSize: ".9rem",
-                    lineHeight: "1rem",
-                    backgroundColor: "#EEE",
-                  }}
+                  className="item_back"
                   onClick={e => {
                     window.history.go(-1)
                   }}
                 >
                   <FaChevronCircleLeft />
-                  <span
-                    style={{
-                      verticalAlign: "top",
-                    }}
-                  >
+                  <span className="item_back_text">
                     {`${intl.formatMessage({ id: "common.back" })}`}
                   </span>
                 </button>
@@ -63,14 +44,7 @@ const LinkPageTemplate = ({ pageContext, intl, data }) => {
               <p>{item.ename}</p>
             </div>
 
-            <div
-              style={{
-                maxWidth: "400px",
-                width: "100%",
-                margin: "0 auto",
-                padding: "0 8px",
-              }}
-            >
+            <div className="item_content_cont">
               <dl>
                 <dt>
                   <span>
@@ -256,6 +230,7 @@ export const LinkPageQuery = graphql`
     site {
       siteMetadata {
         title
+        host
       }
     }
   }

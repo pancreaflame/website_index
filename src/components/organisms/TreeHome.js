@@ -92,48 +92,13 @@ const allPathHome = (itemObj, tree, cate_id, tagObj, lang, sep) => {
       }
 
       return (
-        <li
-          key={index}
-          style={{
-            display: "block",
-            position: "relative",
-          }}
-        >
-          <div
-            className="list-heading"
-            style={{
-              display: "flex",
-            }}
-          >
-            <h4
-              style={{
-                margin: "0 0 4px",
-              }}
-            >
-              <Link
-                to={`/${cate_id}/${item}`}
-                style={{
-                  color: "#c65780",
-                  fontSize: "1.1rem",
-                  textDecoration: "none",
-                }}
-              >
+        <li key={index} className="tree_item">
+          <div className="tree_list_cont">
+            <h4 className="tree_heading">
+              <Link to={`/${cate_id}/${item}`} className="tree_link">
                 {name}
               </Link>
-              <span
-                style={{
-                  margin: "0 2px",
-                  padding: "2px 4px",
-                  border: "1px solid #D76890",
-                  borderRadius: "4px",
-                  display: "inline-block",
-                  fontSize: ".6rem",
-                  lineHeight: "1",
-                  verticalAlign: "middle",
-                }}
-              >
-                {tree[item].count}
-              </span>
+              <span className="tree_link_text">{tree[item].count}</span>
             </h4>
           </div>
           {Object.keys(tree[item]) ? (
@@ -156,21 +121,11 @@ const allPathHome = (itemObj, tree, cate_id, tagObj, lang, sep) => {
                 })
                 .map((x, i) => {
                   return (
-                    <li
-                      key={i}
-                      style={{
-                        margin: "0 0 4px",
-                      }}
-                    >
+                    <li key={i} className="tree_heading">
                       {
                         <Link
-                          style={{
-                            borderBottom: "1px solid #333",
-                            color: "#333",
-                            fontSize: ".9rem",
-                            textDecoration: "none",
-                          }}
                           to={`/link/${x.node.id}`}
+                          className="tree_item_link"
                         >
                           {x.node.cname}
                         </Link>
@@ -197,13 +152,7 @@ const TreeHome = ({ intl, tagObj, itemObj, category_id }) => {
   return (
     <IntlContextConsumer>
       {({ languages, language: currentLocale }) => (
-        <div
-          style={{
-            border: "1px solid #DDD",
-            borderWidth: "0 1px 0 1px",
-          }}
-        >
-          {/* <p>**{category_id}**</p> */}
+        <div className="tree_home_cont">
           <ul>
             {allPathHome(
               itemObj,

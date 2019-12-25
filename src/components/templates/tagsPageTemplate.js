@@ -17,31 +17,13 @@ const TagsPageTemplate = ({ pageContext, intl, data }) => {
     <GeneralPageTemplate title={item.zh + " " + item.en} data={data}>
       <IntlContextConsumer>
         {({ languages, language: currentLocale }) => (
-          <div
-            style={{
-              overflow: "hidden",
-              display: "flex",
-              flexWrap: "wrap-reverse",
-            }}
-          >
-            <div
-              style={{
-                width: "250px",
-              }}
-            >
-              <Tree
-                category_id={item.category_id}
-                tagObj={tagObj}
-                itemObj={itemObj}
-              />
-            </div>
-            <div
-              style={{
-                maxWidth: "calc(700px - 250px)",
-                width: "100%",
-                padding: "0 8px",
-              }}
-            >
+          <div className="tagpage_cont">
+            <Tree
+              category_id={item.category_id}
+              tagObj={tagObj}
+              itemObj={itemObj}
+            />
+            <div className="tagpage_content">
               <p>{item.category_id}</p>
               <h2>{item.zh}</h2>
               <p>{item.en}</p>
@@ -114,6 +96,7 @@ export const TagsPageQuery = graphql`
     site {
       siteMetadata {
         title
+        host
       }
     }
   }

@@ -1,28 +1,27 @@
 import React from "react"
-import Helmet from "react-helmet"
 import { Location } from "@reach/router"
 import Footer from "../organisms/Footer"
 import Header from "../organisms/Header"
 import SEO from "../atoms/SEO"
-import "./index.css"
+import "../../pages/index.css"
 
 export default function PageTemplate({ title, children, data }) {
   const pageTitle = title ? `${title} - ` : ""
 
   return (
-    <div className="d-flex flex-column" style={{ minHeight: "100%" }}>
+    <div className="general d-flex flex-column">
       <Location>
         {({ navigate, location }) => (
           <>
             <SEO
               title={pageTitle}
               description={pageTitle}
+              host={data.site.siteMetadata.host}
               url={location.pathname}
             />
           </>
         )}
       </Location>
-      <Helmet title={pageTitle} />
       <Header siteTitle={data.site.siteMetadata.title} />
       <div className="">
         <div className="container text-page-container pb-2">

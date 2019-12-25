@@ -7,9 +7,7 @@ const LinkedTag = props => {
   return (
     <Link
       to={`/${props.cate + "/" || ""}${props.value}`}
-      style={{
-        display: "inline-block",
-      }}
+      className="item_tag_link"
     >
       <Tag {...props} />
     </Link>

@@ -92,48 +92,13 @@ const allPath = (tree, cate_id, tagObj, lang, sep) => {
       }
 
       return (
-        <li
-          key={index}
-          style={{
-            display: "block",
-            position: "relative",
-          }}
-        >
-          <div
-            className="list-heading"
-            style={{
-              display: "flex",
-            }}
-          >
-            <h4
-              style={{
-                margin: "0 0 4px",
-              }}
-            >
-              <Link
-                to={`/${cate_id}/${item}`}
-                style={{
-                  color: "#c65780",
-                  fontSize: "1.1rem",
-                  textDecoration: "none",
-                }}
-              >
+        <li key={index} className="tree_item">
+          <div className="tree_list_cont">
+            <h4 className="tree_heading">
+              <Link to={`/${cate_id}/${item}`} className="tree_link">
                 {name}
               </Link>
-              <span
-                style={{
-                  margin: "0 2px",
-                  padding: "2px 4px",
-                  border: "1px solid #D76890",
-                  borderRadius: "4px",
-                  display: "inline-block",
-                  fontSize: ".6rem",
-                  lineHeight: "1",
-                  verticalAlign: "middle",
-                }}
-              >
-                {tree[item].count}
-              </span>
+              <span className="tree_link_text">{tree[item].count}</span>
             </h4>
           </div>
           {Object.keys(tree[item]) ? (
@@ -157,20 +122,8 @@ const Tree = ({ intl, tagObj, itemObj, category_id }) => {
   return (
     <IntlContextConsumer>
       {({ languages, language: currentLocale }) => (
-        <div
-          style={{
-            width: "250px",
-            border: "1px solid #DDD",
-            float: "left",
-            fontSize: "12px",
-          }}
-        >
-          <h4
-            style={{
-              padding: "8px",
-              textAlign: "center",
-            }}
-          >
+        <div className="tree_nav_cont">
+          <h4 className="tree_nav_heading">
             {intl.formatMessage({ id: "menu.classification" })}
           </h4>
           <ul>

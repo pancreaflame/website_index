@@ -1,11 +1,12 @@
-// import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import { injectIntl, Link } from "gatsby-plugin-intl"
 import LanguageSwitcher from "../languageswitcher"
 import { FaBars, FaTimes } from "react-icons/fa"
 import { DialogOverlay, DialogContent } from "@reach/dialog"
+
 import "@reach/dialog/styles.css"
+import "../../pages/index.css"
 
 const Header = ({ intl, siteTitle }) => {
   const [showDialog, setShowDialog] = React.useState(false)
@@ -13,75 +14,28 @@ const Header = ({ intl, siteTitle }) => {
   const close = () => setShowDialog(false)
 
   return (
-    <header
-      style={{
-        background: "#D76890",
-        marginBottom: "1rem",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: 960,
-          height: "2.4rem",
-          margin: "0 auto",
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
+    <header>
+      <div className="header_cont">
         <button
+          className="header_hamburger"
           aria-haspopup="true"
           aria-expanded="false"
           onClick={open}
-          style={{
-            padding: "10px",
-            border: "0",
-            background: "none",
-            color: "white",
-          }}
         >
           <FaBars />
         </button>
 
         <DialogOverlay
+          className="aside_overlay"
           aria-label="Menu background"
-          style={{ background: "hsla(0, 100%, 100%, 0.9)" }}
           isOpen={showDialog}
           onDismiss={close}
         >
-          <DialogContent
-            aria-label="Menu Content"
-            style={{
-              width: "250px",
-              height: "100vh",
-              margin: "0",
-              position: "fixed",
-              top: "0",
-              left: "0",
-              boxShadow: "0px 10px 50px hsla(0, 0%, 0%, 0.33)",
-            }}
-          >
-            <button
-              onClick={close}
-              style={{
-                width: "3rem",
-                height: "3rem",
-                margin: "0",
-                padding: "0",
-                border: "0",
-                position: "absolute",
-                top: "0",
-                right: "0",
-                lineHeight: "3rem",
-                backgroundColor: "#FFF",
-              }}
-            >
+          <DialogContent className="aside_content" aria-label="Menu Content">
+            <button className="aside_close" onClick={close}>
               <FaTimes />
             </button>
-            <ul
-              style={{
-                marginTop: "1rem",
-              }}
-            >
+            <ul className="aside_list">
               <li>
                 <Link to="/issue">
                   {intl.formatMessage({ id: "menu.report_issue" })}
@@ -95,20 +49,8 @@ const Header = ({ intl, siteTitle }) => {
             </ul>
           </DialogContent>
         </DialogOverlay>
-        <h1
-          style={{
-            margin: 0,
-            fontSize: "1.2rem",
-          }}
-        >
-          <Link
-            to="/"
-            style={{
-              lineHeight: "2.4rem",
-              color: `white`,
-              textDecoration: `none`,
-            }}
-          >
+        <h1 className="header_title">
+          <Link to="/" className="header_title_link">
             {siteTitle}
           </Link>
         </h1>
