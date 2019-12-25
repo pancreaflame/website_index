@@ -1,7 +1,7 @@
 import React from "react"
 import { Location } from "@reach/router"
 import { graphql } from "gatsby"
-import { injectIntl, Link } from "gatsby-plugin-intl"
+import { injectIntl, IntlContextConsumer, Link } from "gatsby-plugin-intl"
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from "@reach/tabs"
 import { FaSearch } from "react-icons/fa"
 
@@ -18,97 +18,111 @@ const IndexPage = ({ intl, data }) => {
 
   return (
     <Layout>
-      <Location>
-        {({ navigate, location }) => (
+      <IntlContextConsumer>
+        {({ languages, language: currentLocale }) => (
           <>
-            <SEO
-              title={intl.formatMessage({ id: "common.home" })}
-              description={intl.formatMessage({ id: "common.home" })}
-              host={data.site.siteMetadata.host}
-              url={location.pathname}
-            />
+            <Location>
+              {({ navigate, location }) => (
+                <>
+                  <SEO
+                    title={intl.formatMessage({ id: "common.home" })}
+                    description={intl.formatMessage({ id: "common.home" })}
+                    host={data.site.siteMetadata.host}
+                    url={location.pathname}
+                  />
+                </>
+              )}
+            </Location>
+
+            <div className="search_cont">
+              <input type="text" placeholder="Search" />
+              <button onClick={() => {}}>
+                <FaSearch />
+              </button>
+            </div>
+
+            {/* <div>higlights/popular</div> */}
+
+            <Tabs>
+              <TabList>
+                <Tab>
+                  <span className="tab_badge">
+                    {intl.formatMessage({ id: "index.by" })}
+                  </span>
+                  {intl.formatMessage({ id: "index.maincate" })}
+                </Tab>
+                <Tab>
+                  <span className="tab_badge">
+                    {intl.formatMessage({ id: "index.by" })}
+                  </span>
+                  {intl.formatMessage({ id: "index.media" })}
+                </Tab>
+                <Tab>
+                  <span className="tab_badge">
+                    {intl.formatMessage({ id: "index.by" })}
+                  </span>
+                  {intl.formatMessage({ id: "index.subject" })}
+                </Tab>
+                <Tab>
+                  <span className="tab_badge">
+                    {intl.formatMessage({ id: "index.by" })}
+                  </span>
+                  {intl.formatMessage({ id: "index.all" })}
+                </Tab>
+              </TabList>
+
+              <TabPanels>
+                <TabPanel>
+                  <TreeHome
+                    category_id={"maincategory"}
+                    tagObj={tagObj}
+                    itemObj={itemObj}
+                  />
+                </TabPanel>
+                <TabPanel>
+                  <TreeHome
+                    category_id={"media"}
+                    tagObj={tagObj}
+                    itemObj={itemObj}
+                  />
+                </TabPanel>
+                <TabPanel>
+                  <TreeHome
+                    category_id={"subject"}
+                    tagObj={tagObj}
+                    itemObj={itemObj}
+                  />
+                </TabPanel>
+                <TabPanel>
+                  <div className="home_all_cont">
+                    <ul className="home_all_list">
+                      {itemObj &&
+                        itemObj.map((item, index) => {
+                          return (
+                            <li key={index} className="home_all_item">
+                              <p>
+                                <Link
+                                  to={`/link/${item.node.id}`}
+                                  className="home_all_link"
+                                >
+                                  <span>
+                                    {currentLocale === "zh"
+                                      ? item.node.cname || item.node.ename
+                                      : item.node.ename || item.node.cname}
+                                  </span>
+                                </Link>
+                              </p>
+                            </li>
+                          )
+                        })}
+                    </ul>
+                  </div>
+                </TabPanel>
+              </TabPanels>
+            </Tabs>
           </>
         )}
-      </Location>
-
-      <div className="search_cont">
-        <input type="text" placeholder="Search" />
-        <button onClick={() => {}}>
-          <FaSearch />
-        </button>
-      </div>
-
-      {/* <div>higlights/popular</div> */}
-
-      <Tabs>
-        <TabList>
-          <Tab>
-            <span className="tab_badge">
-              {intl.formatMessage({ id: "index.by" })}
-            </span>
-            {intl.formatMessage({ id: "index.maincate" })}
-          </Tab>
-          <Tab>
-            <span className="tab_badge">
-              {intl.formatMessage({ id: "index.by" })}
-            </span>
-            {intl.formatMessage({ id: "index.media" })}
-          </Tab>
-          <Tab>
-            <span className="tab_badge">
-              {intl.formatMessage({ id: "index.by" })}
-            </span>
-            {intl.formatMessage({ id: "index.subject" })}
-          </Tab>
-          <Tab>
-            <span className="tab_badge">
-              {intl.formatMessage({ id: "index.by" })}
-            </span>
-            {intl.formatMessage({ id: "index.all" })}
-          </Tab>
-        </TabList>
-
-        <TabPanels>
-          <TabPanel>
-            <TreeHome
-              category_id={"maincategory"}
-              tagObj={tagObj}
-              itemObj={itemObj}
-            />
-          </TabPanel>
-          <TabPanel>
-            <TreeHome category_id={"media"} tagObj={tagObj} itemObj={itemObj} />
-          </TabPanel>
-          <TabPanel>
-            <TreeHome
-              category_id={"subject"}
-              tagObj={tagObj}
-              itemObj={itemObj}
-            />
-          </TabPanel>
-          <TabPanel>
-            <div className="home_all_cont">
-              <ul className="home_all_list">
-                {itemObj &&
-                  itemObj.map((item, index) => {
-                    return (
-                      <li key={index} className="home_all_item">
-                        <p>
-                          <Link
-                            to={`/link/${item.node.id}`}
-                            className="home_all_link"
-                          >
-                            <span>{item.node.cname}</span>
-                          </Link>
-                        </p>
-                      </li>
-                    )
-                  })}
-              </ul>
-            </div>
-          </TabPanel>
-        </TabPanels>
-      </Tabs>
+      </IntlContextConsumer>
     </Layout>
   )
 }

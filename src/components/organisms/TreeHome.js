@@ -127,7 +127,9 @@ const allPathHome = (itemObj, tree, cate_id, tagObj, lang, sep) => {
                           to={`/link/${x.node.id}`}
                           className="tree_item_link"
                         >
-                          {x.node.cname}
+                          {lang === "zh"
+                            ? x.node.cname || x.node.ename
+                            : x.node.ename || x.node.cname}
                         </Link>
                       }
                     </li>
