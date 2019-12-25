@@ -7,7 +7,6 @@ import GeneralPageTemplate from "./generalPageTemplate"
 
 const TagsPageTemplate = ({ pageContext, intl, data }) => {
   const item = pageContext.item
-  // const categoryObj = data.allApCategoryCsv.edges
   const tagObj = data.allApTagCsv.edges
   const itemObj = data.allApLinkCsv.edges
   const filteredItemObj = itemObj.filter(value => {
@@ -18,15 +17,31 @@ const TagsPageTemplate = ({ pageContext, intl, data }) => {
     <GeneralPageTemplate title={item.zh + " " + item.en} data={data}>
       <IntlContextConsumer>
         {({ languages, language: currentLocale }) => (
-          <div style={{ overflow: "hidden" }}>
-            <div style={{ width: "250px", float: "left" }}>
+          <div
+            style={{
+              overflow: "hidden",
+              display: "flex",
+              flexWrap: "wrap-reverse",
+            }}
+          >
+            <div
+              style={{
+                width: "250px",
+              }}
+            >
               <Tree
                 category_id={item.category_id}
                 tagObj={tagObj}
                 itemObj={itemObj}
               />
             </div>
-            <div style={{ width: "calc(100% - 250px)", float: "left" }}>
+            <div
+              style={{
+                maxWidth: "calc(700px - 250px)",
+                width: "100%",
+                padding: "0 8px",
+              }}
+            >
               <p>{item.category_id}</p>
               <h2>{item.zh}</h2>
               <p>{item.en}</p>
@@ -36,9 +51,6 @@ const TagsPageTemplate = ({ pageContext, intl, data }) => {
                 tagObj={tagObj}
                 itemObj={filteredItemObj}
               />
-              {/* <p>
-                {JSON.stringify(filteredItemObj)}
-              </p> */}
             </div>
           </div>
         )}

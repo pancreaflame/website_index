@@ -58,7 +58,7 @@ module.exports = {
         path: `${__dirname}/public/intl`,
         languages: [`zh`, `en`],
         defaultLanguage: `zh`,
-        redirect: true,
+        redirect: false,
       },
     },
     {

@@ -54,17 +54,13 @@ const LinkPageTemplate = ({ pageContext, intl, data }) => {
                       verticalAlign: "top",
                     }}
                   >
-                    {`Back${intl
-                      .formatMessage({ id: "item.description" })
-                      .slice(0, 0)}`}
+                    {`${intl.formatMessage({ id: "common.back" })}`}
                   </span>
                 </button>
               </div>
               <div>{"Image"}</div>
               <h2>{item.cname}</h2>
               <p>{item.ename}</p>
-              {/* <p>{JSON.stringify(categoryObj)}</p>
-              <p>{JSON.stringify(tagObj)}</p> */}
             </div>
 
             <div

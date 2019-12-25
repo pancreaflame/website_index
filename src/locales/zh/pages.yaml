@@ -1,6 +1,8 @@
 ---
 common:
   notfound: 沒有資料
+  home: 首頁
+  back: 返回
   
 index:
   open:
@@ -11,6 +13,11 @@ index:
   media: 媒介
   subject: 議題
   all: 全部
+
+menu:
+  about: 關於
+  report_issue: 回報問題
+  classification: 分類
 
 item:
   description: 簡述

@@ -96,14 +96,46 @@ const allPath = (tree, cate_id, tagObj, lang, sep) => {
           key={index}
           style={{
             display: "block",
-            border: "1px solid #000",
             position: "relative",
           }}
         >
-          <h3>
-            <Link to={`/${cate_id}/${item}`}>{name}</Link>
-          </h3>
-          {<p>{tree[item].count}</p>}
+          <div
+            className="list-heading"
+            style={{
+              display: "flex",
+            }}
+          >
+            <h4
+              style={{
+                margin: "0 0 4px",
+              }}
+            >
+              <Link
+                to={`/${cate_id}/${item}`}
+                style={{
+                  color: "#c65780",
+                  fontSize: "1.1rem",
+                  textDecoration: "none",
+                }}
+              >
+                {name}
+              </Link>
+              <span
+                style={{
+                  margin: "0 2px",
+                  padding: "2px 4px",
+                  border: "1px solid #D76890",
+                  borderRadius: "4px",
+                  display: "inline-block",
+                  fontSize: ".6rem",
+                  lineHeight: "1",
+                  verticalAlign: "middle",
+                }}
+              >
+                {tree[item].count}
+              </span>
+            </h4>
+          </div>
           {Object.keys(tree[item]) ? (
             <ul>{allPath(tree[item], cate_id, tagObj, lang, sep + ">")}</ul>
           ) : null}
@@ -133,7 +165,14 @@ const Tree = ({ intl, tagObj, itemObj, category_id }) => {
             fontSize: "12px",
           }}
         >
-          <p>**{category_id}**</p>
+          <h4
+            style={{
+              padding: "8px",
+              textAlign: "center",
+            }}
+          >
+            {intl.formatMessage({ id: "menu.classification" })}
+          </h4>
           <ul>
             {allPath(aobj.treeCount, category_id, tagObj, currentLocale, ">")}
           </ul>

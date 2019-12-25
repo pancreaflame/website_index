@@ -1,6 +1,8 @@
 ---
 common:
   notfound: Not Found
+  home: Home
+  back: Back
 
 index:
   open:
@@ -11,6 +13,11 @@ index:
   media: Medium
   subject: Subject
   all: All
+
+menu:
+  about: About
+  report_issue: Report Issues
+  classification: Classification
 
 item:
   description: Description

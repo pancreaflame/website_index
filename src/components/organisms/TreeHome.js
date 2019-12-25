@@ -96,7 +96,6 @@ const allPathHome = (itemObj, tree, cate_id, tagObj, lang, sep) => {
           key={index}
           style={{
             display: "block",
-            // border: "1px solid #333",
             position: "relative",
           }}
         >
@@ -106,23 +105,21 @@ const allPathHome = (itemObj, tree, cate_id, tagObj, lang, sep) => {
               display: "flex",
             }}
           >
-            <h3
+            <h4
               style={{
                 margin: "0 0 4px",
               }}
             >
               <Link
+                to={`/${cate_id}/${item}`}
                 style={{
                   color: "#c65780",
-                  fontSize: "1.2rem",
+                  fontSize: "1.1rem",
                   textDecoration: "none",
                 }}
-                to={`/${cate_id}/${item}`}
               >
                 {name}
               </Link>
-            </h3>
-            <p>
               <span
                 style={{
                   margin: "0 2px",
@@ -130,12 +127,14 @@ const allPathHome = (itemObj, tree, cate_id, tagObj, lang, sep) => {
                   border: "1px solid #D76890",
                   borderRadius: "4px",
                   display: "inline-block",
+                  fontSize: ".6rem",
                   lineHeight: "1",
+                  verticalAlign: "middle",
                 }}
               >
                 {tree[item].count}
               </span>
-            </p>
+            </h4>
           </div>
           {Object.keys(tree[item]) ? (
             <ul>

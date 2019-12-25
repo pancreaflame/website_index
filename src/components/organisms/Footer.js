@@ -14,7 +14,7 @@ const Footer = ({ intl }) => {
       {` `}
       <a href="https://www.gatsbyjs.org">Gatsby</a>
       {` `}
-      <Link to="/">{`About` + intl.formatMessage({ id: `index.news` })}</Link>
+      <Link to="/about">{intl.formatMessage({ id: `menu.about` })}</Link>
     </footer>
   )
 }

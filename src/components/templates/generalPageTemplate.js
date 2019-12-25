@@ -24,16 +24,9 @@ export default function PageTemplate({ title, children, data }) {
       </Location>
       <Helmet title={pageTitle} />
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div className="d-flex flex-column flex-grow-1">
+      <div className="">
         <div className="container text-page-container pb-2">
-          <div
-            style={{
-              flex: "auto",
-            }}
-          >
-            {/* <h1 className="border-bottom text-center mb-4">{title}</h1> */}
-            {children}
-          </div>
+          <div>{children}</div>
         </div>
       </div>
       <Footer />
