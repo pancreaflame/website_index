@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `網站目錄 Website Index`,
+    title: `YIndex`,
     description: `找出大家的作品和付出，活出自己的天地。 Find out the works and efforts from everyone, live in our own styles.`,
-    author: `@oktak`,
+    author: `@pancreaflame`,
     host: `localhost`,
   },
   plugins: [
