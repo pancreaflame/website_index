@@ -13,6 +13,9 @@ a {
 a:hover {
   border-bottom-color: transparent !important;
 }
+.wrapper h1, .wrapper h2, .wrapper h3, .wrapper h4, .wrapper h5, .wrapper h6 {
+  color: #333;
+}
 .wrapper {
   margin: 0 auto;
   max-width: 960px;

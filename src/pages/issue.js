@@ -38,13 +38,9 @@ const IssuePage = ({ intl }) => {
           </>
         )}
       </Location>
-      <h1>Sub folder page 3</h1>
-      <p>Welcome to hell</p>
-      <Link to="/">Go back to the homepage</Link>
-      <Link to="/page-2/">Go to page 2</Link>
-
-      {/* <button onClick={handleSwitch('zh-hk')}>zh-hk</button> */}
-      <h4>{intl.formatMessage({ id: "index.open.title" })}</h4>
+      <h1>{intl.formatMessage({ id: "issue.title" })}</h1>
+      <p>{intl.formatMessage({ id: "issue.para01" })}</p>
+      <Link to="/">{intl.formatMessage({ id: "common.backhome" })}</Link>
     </Layout>
   )
 }
