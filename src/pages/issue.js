@@ -10,7 +10,25 @@ import SEO from "../components/atoms/SEO"
 import "./index.css"
 
 const componentDecorator = (href, text, key) => (
-  <a href={href} key={key} rel="noopener noreferrer" target="_blank">
+  <a
+    href={href}
+    key={key}
+    rel="noopener noreferrer"
+    target="_blank"
+    onClick={() => {
+      window.dataLayer &&
+        window.dataLayer.push({
+          event: "yw_general",
+          eventCategory: "yw_general_link",
+          eventAction: `outbound_link`,
+          eventLabel: JSON.stringify({
+            url: href,
+            ts: Date.now(),
+          }),
+          eventValue: 1,
+        })
+    }}
+  >
     {text}
   </a>
 )
