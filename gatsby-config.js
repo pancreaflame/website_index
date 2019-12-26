@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `YIndex`,
+    title: `YelloWork 網站目錄`,
     description: `找出大家的作品和付出，活出自己的天地。 Find out the works and efforts from everyone, live in our own styles.`,
     author: `@pancreaflame`,
-    host: `localhost`,
+    host: `yello.work`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
