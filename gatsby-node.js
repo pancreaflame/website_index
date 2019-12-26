@@ -151,10 +151,11 @@ exports.createPages = ({ graphql, actions }) => {
             createPage({
               path: `/${node.category_id}/${node.id}/`,
               component: path.resolve(
-                `./src/components/templates/tagsPageTemplate.js`
+                `./src/components/templates/tagsPageTemplate_${node.category_id}.js`
               ),
               context: {
                 item: node,
+                regex: `/${node.id}/`,
               },
             })
           })
