@@ -30,8 +30,8 @@ const IssuePage = ({ intl }) => {
         {({ navigate, location }) => (
           <>
             <SEO
-              title={intl.formatMessage({ id: "about.title" })}
-              description={intl.formatMessage({ id: "about.title" })}
+              title={intl.formatMessage({ id: "issue.title" })}
+              description={intl.formatMessage({ id: "issue.title" })}
               host={site.siteMetadata.host}
               url={location.pathname}
             />

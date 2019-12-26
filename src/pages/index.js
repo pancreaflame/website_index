@@ -45,16 +45,17 @@ const IndexPage = ({ intl, data }) => {
 
             <Tabs
               onChange={index => {
-                window.dataLayer.push({
-                  event: "yw_tab_switch",
-                  eventCategory: "yw_tab_switch",
-                  eventAction: `switch_tab_${index}`,
-                  eventLabel: JSON.stringify({
-                    tab: index,
-                    ts: Date.now(),
-                  }),
-                  eventValue: 1,
-                })
+                window.dataLayer &&
+                  window.dataLayer.push({
+                    event: "yw_tab_switch",
+                    eventCategory: "yw_tab_switch",
+                    eventAction: `switch_tab_${index}`,
+                    eventLabel: JSON.stringify({
+                      tab: index,
+                      ts: Date.now(),
+                    }),
+                    eventValue: 1,
+                  })
               }}
             >
               <TabList>

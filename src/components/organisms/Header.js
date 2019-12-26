@@ -13,44 +13,47 @@ const Header = ({ intl, siteTitle }) => {
   const open = () => {
     setShowDialog(true)
 
-    window.dataLayer.push({
-      event: "yw_aside",
-      eventCategory: "yw_aside",
-      eventAction: `aside_open`,
-      eventLabel: JSON.stringify({
-        action: "open",
-        ts: Date.now(),
-      }),
-      eventValue: 1,
-    })
+    window.dataLayer &&
+      window.dataLayer.push({
+        event: "yw_aside",
+        eventCategory: "yw_aside",
+        eventAction: `aside_open`,
+        eventLabel: JSON.stringify({
+          action: "open",
+          ts: Date.now(),
+        }),
+        eventValue: 1,
+      })
   }
   const close1 = () => {
     setShowDialog(false)
 
-    window.dataLayer.push({
-      event: "yw_aside",
-      eventCategory: "yw_aside",
-      eventAction: `aside_close1`,
-      eventLabel: JSON.stringify({
-        action: "close",
-        ts: Date.now(),
-      }),
-      eventValue: 1,
-    })
+    window.dataLayer &&
+      window.dataLayer.push({
+        event: "yw_aside",
+        eventCategory: "yw_aside",
+        eventAction: `aside_close1`,
+        eventLabel: JSON.stringify({
+          action: "close",
+          ts: Date.now(),
+        }),
+        eventValue: 1,
+      })
   }
   const close2 = () => {
     setShowDialog(false)
 
-    window.dataLayer.push({
-      event: "yw_aside",
-      eventCategory: "yw_aside",
-      eventAction: `aside_close2`,
-      eventLabel: JSON.stringify({
-        action: "close",
-        ts: Date.now(),
-      }),
-      eventValue: 1,
-    })
+    window.dataLayer &&
+      window.dataLayer.push({
+        event: "yw_aside",
+        eventCategory: "yw_aside",
+        eventAction: `aside_close2`,
+        eventLabel: JSON.stringify({
+          action: "close",
+          ts: Date.now(),
+        }),
+        eventValue: 1,
+      })
   }
 
   return (
@@ -99,16 +102,17 @@ const Header = ({ intl, siteTitle }) => {
                 to="/"
                 className="header_title_link"
                 onClick={() => {
-                  window.dataLayer.push({
-                    event: "yw_logo_click",
-                    eventCategory: "yw_logo_click",
-                    eventAction: `click_logo`,
-                    eventLabel: JSON.stringify({
-                      lang: currentLocale,
-                      ts: Date.now(),
-                    }),
-                    eventValue: 1,
-                  })
+                  window.dataLayer &&
+                    window.dataLayer.push({
+                      event: "yw_logo_click",
+                      eventCategory: "yw_logo_click",
+                      eventAction: `click_logo`,
+                      eventLabel: JSON.stringify({
+                        lang: currentLocale,
+                        ts: Date.now(),
+                      }),
+                      eventValue: 1,
+                    })
                 }}
               >
                 {siteTitle}
