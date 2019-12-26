@@ -44,7 +44,7 @@ const TagsPageTemplate = ({ pageContext, intl, data }) => {
 export default injectIntl(TagsPageTemplate)
 
 export const TagsPageQuery = graphql`
-  query($regex :String!) {
+  query($regex: String!) {
     allApCategoryCsv {
       edges {
         node {
@@ -68,7 +68,7 @@ export const TagsPageQuery = graphql`
         }
       }
     }
-    allApLinkCsv(filter: {maincategory_tag_ids: {regex: $regex}}) {
+    allApLinkCsv(filter: { maincategory_tag_ids: { regex: $regex } }) {
       edges {
         node {
           id
