@@ -43,7 +43,20 @@ const IndexPage = ({ intl, data }) => {
 
             {/* <div>higlights/popular</div> */}
 
-            <Tabs>
+            <Tabs
+              onChange={index => {
+                window.dataLayer.push({
+                  event: "yw_tab_switch",
+                  eventCategory: "yw_tab_switch",
+                  eventAction: `switch_tab_${index}`,
+                  eventLabel: JSON.stringify({
+                    tab: index,
+                    ts: Date.now(),
+                  }),
+                  eventValue: 1,
+                })
+              }}
+            >
               <TabList>
                 <Tab>
                   <span className="tab_badge">
