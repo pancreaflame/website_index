@@ -27,16 +27,17 @@ class LanguageSwitcher extends Component {
         onClick={() => {
           changeLocale(code)
 
-          window.dataLayer.push({
-            event: "switch_lang2",
-            eventCategory: "yw_lang",
-            eventAction: `switch_lang2_${code}`,
-            eventLabel: JSON.stringify({
-              lang: code,
-              ts: Date.now(),
-            }),
-            eventValue: 1,
-          })
+          window.dataLayer &&
+            window.dataLayer.push({
+              event: "switch_lang2",
+              eventCategory: "yw_lang",
+              eventAction: `switch_lang2_${code}`,
+              eventLabel: JSON.stringify({
+                lang: code,
+                ts: Date.now(),
+              }),
+              eventValue: 1,
+            })
         }}
       >
         {label}
@@ -46,16 +47,17 @@ class LanguageSwitcher extends Component {
 
   handleLangMenuClick(e) {
     let action = !this.state.isLangMenuOn ? "lang_open" : "lang_close"
-    window.dataLayer.push({
-      event: "switch_lang2",
-      eventCategory: "yw_lang",
-      eventAction: action,
-      eventLabel: JSON.stringify({
-        action: action,
-        ts: Date.now(),
-      }),
-      eventValue: 1,
-    })
+    window.dataLayer &&
+      window.dataLayer.push({
+        event: "switch_lang2",
+        eventCategory: "yw_lang",
+        eventAction: action,
+        eventLabel: JSON.stringify({
+          action: action,
+          ts: Date.now(),
+        }),
+        eventValue: 1,
+      })
 
     this.setState(state => {
       return {

@@ -6,7 +6,7 @@ import SEO from "../atoms/SEO"
 import "../../pages/index.css"
 
 export default function PageTemplate({ title, children, data }) {
-  const pageTitle = title ? `${title} - ` : ""
+  const pageTitle = title ? `${title}` : ""
 
   return (
     <div className="general d-flex flex-column">
