@@ -5,6 +5,7 @@ common:
   home: 首頁
   back: 返回
   backhome: 返回首頁
+  alltag: 所有標籤
 
 index:
   open:

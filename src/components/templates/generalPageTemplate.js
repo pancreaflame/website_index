@@ -22,7 +22,10 @@ export default function PageTemplate({ title, children, data }) {
           </>
         )}
       </Location>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header
+        siteTitle={data.site.siteMetadata.title}
+        apTag={data.allApTagCsv.edges}
+      />
       <div className="">
         <div className="container text-page-container pb-2">
           <div>{children}</div>

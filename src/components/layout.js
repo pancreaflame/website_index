@@ -21,12 +21,25 @@ const Layout = ({ children }) => {
           title
         }
       }
+      allApTagCsv {
+        edges {
+          node {
+            id
+            category_id
+            zh
+            en
+          }
+        }
+      }
     }
   `)
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header
+        siteTitle={data.site.siteMetadata.title}
+        apTag={data.allApTagCsv.edges}
+      />
       <div className="wrapper">
         <main>{children}</main>
         <Footer />

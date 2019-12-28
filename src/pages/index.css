@@ -81,6 +81,16 @@ header {
 .aside_overlay {
   background: hsla(0, 100%, 100%, 0.9);
 }
+.aside_taglist {
+  margin: 0 -1rem;
+  padding: 0 4px;
+  height: 30vh;
+  overflow: auto;
+}
+.aside_tag {
+  display: inline-block;
+  margin: 0 8px 0 0;
+}
 
 /* Footer */
 footer {
