@@ -129,6 +129,15 @@ const Header = ({ intl, siteTitle, apTag }) => {
                         )
                       })}
                 </ul>
+
+                <ins
+                  className="adsbygoogle"
+                  style={{ display: "block" }}
+                  data-ad-client="ca-pub-1672485794665632"
+                  data-ad-slot="9461101988"
+                  data-ad-format="auto"
+                  data-full-width-responsive="true"
+                />
               </DialogContent>
             </DialogOverlay>
             <h1 className="header_title">

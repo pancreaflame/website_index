@@ -45,12 +45,31 @@ const RandomLink = ({ intl, itemObj }) => {
             </Link>
           </h4>
           <ul>
-            {itemObj &&
+            {(Math.floor(Math.random() * 1000) + 1) % 4 === 0 ? (
+              <>
+                {itemObj &&
+                  shuffle(itemObj.slice())
+                    .slice(0, 2)
+                    .map((item, index) => {
+                      return <Item key={index} {...item.node} />
+                    })}
+                <ins
+                  className="adsbygoogle"
+                  style={{ display: "block" }}
+                  data-ad-format="fluid"
+                  data-ad-layout-key="-hl+a-w-1e+66"
+                  data-ad-client="ca-pub-1672485794665632"
+                  data-ad-slot="7573305246"
+                />
+              </>
+            ) : (
+              itemObj &&
               shuffle(itemObj.slice())
                 .slice(0, 3)
                 .map((item, index) => {
                   return <Item key={index} {...item.node} />
-                })}
+                })
+            )}
           </ul>
         </div>
       )}
