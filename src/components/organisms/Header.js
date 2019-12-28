@@ -66,8 +66,9 @@ const Header = ({ intl, siteTitle, apTag }) => {
               aria-haspopup="true"
               aria-expanded="false"
               onClick={open}
+              aria-label="Open Aside"
             >
-              <FaBars />
+              <FaBars aria-label="Open Aside Button's Icon" />
             </button>
 
             <DialogOverlay

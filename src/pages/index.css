@@ -7,7 +7,7 @@ body {
   padding: 0;
 }
 a {
-  color: #c65780;
+  color: #b65780;
   text-decoration: none;
 }
 a:hover {
@@ -111,9 +111,11 @@ footer {
   color: white;
 }
 .lang_menu {
+  padding: 8px;
   position: absolute;
   top: 100%;
   right: 0;
+  z-index: 1;
   text-align: right;
   background: #FFF;
 }
@@ -137,6 +139,7 @@ footer {
 button[data-selected] .tab_badge {
   width: 1.2rem;
   height: 1.2rem;
+  border: 1px solid #D76890;
   border-radius: 50%;
   display: inline-block;
   position: absolute;
@@ -144,8 +147,8 @@ button[data-selected] .tab_badge {
   left: -.5rem;
   font-size: .6rem;
   line-height: 1.2rem;
-  background-color: #D76890;
-  color: #FFF;
+  background-color: #FFF;
+  color: #333;
 }
 
 [data-reach-tab-panel] > div {
@@ -188,7 +191,7 @@ button[data-selected] .tab_badge {
   padding: 0 10px 0 0;
 }
 .home_all_link {
-  border-bottom: 1px solid #c65780;
+  border-bottom: 1px solid #b65780;
 }
 
 /* Tags Page */
@@ -203,7 +206,7 @@ button[data-selected] .tab_badge {
   margin: 0 0 4px;
 }
 .tree_link {
-  color: #c65780;
+  color: #b65780;
   font-size: 1.1rem;
   text-decoration: none;
 }
