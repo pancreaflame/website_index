@@ -721,7 +721,7 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.2.0", "@babel/runtime@^7.4.3":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.4.3", "@babel/runtime@^7.5.5":
   version "7.7.7"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.7.7.tgz#194769ca8d6d7790ec23605af9ee3e42a0aa79cf"
   integrity sha512-uCnC2JEVAu8AKB5do1WRIsvrdJ0flYx/A/9f/6chdacnEZ7LmavjdsDXr5ksYBegxtuTPR5Va9/+13QF/kFkCA==
@@ -844,6 +844,14 @@
   integrity sha512-tAag0jEcjwH+P2quUfipd7liWCNX2F8NvYjQp2wtInsZxnMlypdw0FtAOLxtvvkO+GSRRbmNi8m/5y42PQJYCQ==
   dependencies:
     "@hapi/hoek" "^8.3.0"
+
+"@isamrish/gatsby-plugin-google-adsense@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@isamrish/gatsby-plugin-google-adsense/-/gatsby-plugin-google-adsense-1.0.0.tgz#49f75a6a2c1e9c1623dca13904b27786578e3bb1"
+  integrity sha512-EkDAxPUssWsub+0RUlcMG2+YNd6/mDqNO0UzqwJ2Yu8nkFkbghQLMDnRa91HGOKKZVB58BMokcGHTOMGnJrSGQ==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    react "^16.8.6"
 
 "@jimp/bmp@^0.6.8":
   version "0.6.8"
@@ -5379,13 +5387,6 @@ gatsby-page-utils@^0.0.33:
     glob "^7.1.6"
     lodash "^4.17.15"
     micromatch "^3.1.10"
-
-gatsby-plugin-google-adsense@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-adsense/-/gatsby-plugin-google-adsense-1.1.3.tgz#267e24880a7634d988bb09b920a115a80f826d55"
-  integrity sha512-tzEg4UIMXCTn+NSB580jzvOgDVTY/+ZbSwQ0EfHUDDqdnvI5KnSQP84mGC5bd96Qy9L15+l9ZRtZ17EdoKBe7g==
-  dependencies:
-    "@babel/runtime" "^7.2.0"
 
 gatsby-plugin-google-tagmanager@^2.1.20:
   version "2.1.20"
@@ -10082,7 +10083,7 @@ react-style-singleton@^2.0.0:
     invariant "^2.2.4"
     tslib "^1.0.0"
 
-react@^16.12.0:
+react@^16.12.0, react@^16.8.6:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.12.0.tgz#0c0a9c6a142429e3614834d5a778e18aa78a0b83"
   integrity sha512-fglqy3k5E+81pA8s+7K0/T3DBCF0ZDOher1elBFzF7O6arXJgzyu/FW+COxFvAWXJoJN9KIZbT2LXlukwphYTA==
