@@ -5,6 +5,7 @@ common:
   home: Home
   back: Back
   backhome: Go back to Home
+  alltag: All Tags
 
 index:
   open:
@@ -15,6 +16,7 @@ index:
   media: Medium
   subject: Subject
   all: All
+  random: Random Picks
 
 menu:
   about: About

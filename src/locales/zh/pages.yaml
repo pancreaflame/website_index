@@ -5,6 +5,7 @@ common:
   home: 首頁
   back: 返回
   backhome: 返回首頁
+  alltag: 所有標籤
 
 index:
   open:
@@ -15,6 +16,7 @@ index:
   media: 媒介
   subject: 議題
   all: 全部
+  random: 隨機抽選
 
 menu:
   about: 關於

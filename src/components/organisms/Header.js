@@ -8,7 +8,7 @@ import { DialogOverlay, DialogContent } from "@reach/dialog"
 import "@reach/dialog/styles.css"
 import "../../pages/index.css"
 
-const Header = ({ intl, siteTitle }) => {
+const Header = ({ intl, siteTitle, apTag }) => {
   const [showDialog, setShowDialog] = React.useState(false)
   const open = () => {
     setShowDialog(true)
@@ -66,8 +66,9 @@ const Header = ({ intl, siteTitle }) => {
               aria-haspopup="true"
               aria-expanded="false"
               onClick={open}
+              aria-label="Open Aside"
             >
-              <FaBars />
+              <FaBars aria-label="Open Aside Button's Icon" />
             </button>
 
             <DialogOverlay
@@ -85,6 +86,11 @@ const Header = ({ intl, siteTitle }) => {
                 </button>
                 <ul className="aside_list">
                   <li>
+                    <Link to="/">
+                      {intl.formatMessage({ id: "common.home" })}
+                    </Link>
+                  </li>
+                  <li>
                     <Link to="/issue">
                       {intl.formatMessage({ id: "menu.report_issue" })}
                     </Link>
@@ -94,6 +100,34 @@ const Header = ({ intl, siteTitle }) => {
                       {intl.formatMessage({ id: "menu.about" })}
                     </Link>
                   </li>
+                </ul>
+
+                <h4>{intl.formatMessage({ id: "common.alltag" })}</h4>
+                <ul className="aside_taglist">
+                  {// JSON.stringify(apTag)
+                  apTag &&
+                    apTag
+                      .sort((a, b) => {
+                        return a.node.en > b.node.en
+                      })
+                      .map((edge, index) => {
+                        let item = edge.node
+
+                        return (
+                          <li key={index}>
+                            <Link
+                              to={`/${item.category_id}/${item.id}`}
+                              className="aside_tag"
+                            >
+                              <span>
+                                {item.en === item.zh
+                                  ? `${item.en}`
+                                  : `${item.en}（${item.zh}）`}
+                              </span>
+                            </Link>
+                          </li>
+                        )
+                      })}
                 </ul>
               </DialogContent>
             </DialogOverlay>

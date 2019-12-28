@@ -86,8 +86,9 @@ class LanguageSwitcher extends Component {
               aria-haspopup="true"
               aria-expanded="false"
               onClick={this.handleLangMenuClick}
+              aria-label="Open Language Menu"
             >
-              <FaGlobe />
+              <FaGlobe aria-label="Open Language Menu Button's Icon" />
             </button>
             {this.state.isLangMenuOn && (
               <div
