@@ -127,6 +127,21 @@ footer {
   box-shadow: 0 2px 10px -8px #333;
 }
 
+/* Random */
+.dice {
+  margin: 0 4px;
+  padding: 4px 4px 0;
+  border: 1px solid #b65780;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px #b65780;
+}
+.dice svg {
+  transition: transform 1s ease-in-out;
+}
+.dice.animate svg {
+  transform: rotate(180deg);
+}
+
 /* Search */
 .search_cont {
   margin: 4px auto 1rem,

@@ -8,6 +8,7 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel } from "@reach/tabs"
 import Layout from "../components/layout"
 import SEO from "../components/atoms/SEO"
 import TreeHome from "../components/organisms/TreeHome"
+import RandomLink from "../components/organisms/RandomLink"
 
 import "@reach/tabs/styles.css"
 import "./index.css"
@@ -42,6 +43,8 @@ const IndexPage = ({ intl, data }) => {
             </div> */}
 
             {/* <div>higlights/popular</div> */}
+
+            <RandomLink itemObj={itemObj} />
 
             <Tabs
               onChange={index => {
