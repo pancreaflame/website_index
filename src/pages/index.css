@@ -208,6 +208,36 @@ button[data-selected] .tab_badge {
 .home_all_link {
   border-bottom: 1px solid #b65780;
 }
+.home_intro {
+  margin: 0 0 1rem;
+  padding: .5rem .5rem 0;
+  border: 1px solid #333;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  background-color: #F7F7F7;
+}
+.home_intro_heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.home_intro_heading h5 {
+  margin: 0;
+  font-size: .8rem;
+}
+.home_intro_body {
+  line-height: 1.3;
+}
+.home_intro_body p {
+  line-height: 1.3;
+  font-size: .8rem;
+}
+.home_intro_close {
+  height: 50%;
+  border: 0;
+  background: none;
+}
 
 /* Tags Page */
 .tree_item {

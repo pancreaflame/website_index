@@ -77,11 +77,11 @@ module.exports = {
         includeInDevelopment: false,
       },
     },
-    {
-      resolve: `@isamrish/gatsby-plugin-google-adsense`,
-      options: {
-        googleAdClientId: "\"ca-pub-1672485794665632\"",
-      },
-    },
+    // {
+    //   resolve: `@isamrish/gatsby-plugin-google-adsense`,
+    //   options: {
+    //     googleAdClientId: "\"ca-pub-1672485794665632\"",
+    //   },
+    // },
   ],
 }

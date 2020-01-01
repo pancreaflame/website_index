@@ -8,8 +8,9 @@ common:
   alltag: All Tags
 
 index:
-  open:
-    title: Rehearsals
+  introduction:
+    title: Introduction
+    para01: We'll never forget the works contributed by Hongkongers. Cherish every effort. Help the useful information flow.
   news: news
   by: By
   maincate: Main category

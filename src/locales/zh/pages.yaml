@@ -8,8 +8,9 @@ common:
   alltag: 所有標籤
 
 index:
-  open:
-    title: 中文 Repetities
+  introduction:
+    title: 簡介
+    para01: 這裡希望把每個團隊的努力貢獻都記下，珍視每片心和力，讓香港人消息更靈通。
   news: 中文Nieuws
   by: 依
   maincate: 主要分類

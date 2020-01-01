@@ -3,6 +3,7 @@ import { Location } from "@reach/router"
 import { graphql } from "gatsby"
 import { injectIntl, IntlContextConsumer, Link } from "gatsby-plugin-intl"
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from "@reach/tabs"
+import { FaTimes } from "react-icons/fa"
 // import { FaSearch } from "react-icons/fa"
 
 import Layout from "../components/layout"
@@ -16,6 +17,23 @@ import "./index.css"
 const IndexPage = ({ intl, data }) => {
   const tagObj = data.allApTagCsv.edges
   const itemObj = data.allApLinkCsv.edges
+  const [showInfo, setShowInfo] = React.useState(true)
+
+  const close = () => {
+    setShowInfo(false)
+
+    window.dataLayer &&
+      window.dataLayer.push({
+        event: "yw_general",
+        eventCategory: "yw_home",
+        eventAction: `home_intro_close`,
+        eventLabel: JSON.stringify({
+          action: "close",
+          ts: Date.now(),
+        }),
+        eventValue: 1,
+      })
+  }
 
   return (
     <Layout>
@@ -45,6 +63,28 @@ const IndexPage = ({ intl, data }) => {
             {/* <div>higlights/popular</div> */}
 
             <RandomLink itemObj={itemObj} />
+
+            {showInfo && (
+              <div className="home_intro">
+                <div className="home_intro_heading">
+                  <h5>
+                    {intl.formatMessage({ id: "index.introduction.title" })}
+                  </h5>
+                  <button
+                    className="home_intro_close"
+                    onClick={close}
+                    aria-label="Close Introduction"
+                  >
+                    <FaTimes />
+                  </button>
+                </div>
+                <div className="home_intro_body">
+                  <p>
+                    {intl.formatMessage({ id: "index.introduction.para01" })}
+                  </p>
+                </div>
+              </div>
+            )}
 
             <Tabs
               onChange={index => {

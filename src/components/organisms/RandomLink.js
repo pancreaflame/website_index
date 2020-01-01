@@ -54,6 +54,7 @@ const RandomLink = ({ intl, itemObj }) => {
                       return <Item key={index} {...item.node} />
                     })}
                 <ins
+                  key="adsense"
                   className="adsbygoogle"
                   style={{ display: "block" }}
                   data-ad-format="fluid"
