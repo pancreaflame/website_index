@@ -137,7 +137,10 @@ const Header = ({ intl, siteTitle, apTag }) => {
                   data-ad-slot="9461101988"
                   data-ad-format="auto"
                   data-full-width-responsive="true"
-                />
+                ></ins>
+                <script>
+                  (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
               </DialogContent>
             </DialogOverlay>
             <h1 className="header_title">

@@ -3,7 +3,7 @@ before_script:
   - pwd
   - mkdir -p src/data
   - sudo curl -o src/data/ap_category.csv https://s3.amazonaws.com/csvpastebin/uploads/7bdcc7bde978f35559ae8cbe37ae77a2/ap_category.csv
-  - sudo curl -o src/data/ap_link.csv https://s3.amazonaws.com/csvpastebin/uploads/0a1e5b7d1b5a849367fcd8ba9883aa6c/ap_link.csv
+  - sudo curl -o src/data/ap_link.csv https://s3.amazonaws.com/csvpastebin/uploads/08c614cbeaf2622d1b41d67be22c989b/ap_link.csv
   - sudo curl -o src/data/ap_tag.csv https://s3.amazonaws.com/csvpastebin/uploads/2ebb7fdd85b3b2b722e9645b0b8045d2/ap_tag.csv
   - npm install -g gatsby-cli
 node_js:
