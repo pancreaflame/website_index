@@ -139,9 +139,9 @@ const Header = ({ intl, siteTitle, apTag }) => {
                   data-full-width-responsive="true"
                 ></ins>
                 <script>
-                  setTimeout(() => {
-                    (adsbygoogle = window.adsbygoogle || []).push({})
-                  }, 2500);
+                  {setTimeout(() => {
+                    ;(adsbygoogle = window.adsbygoogle || []).push({})
+                  }, 2500)}
                 </script>
               </DialogContent>
             </DialogOverlay>
