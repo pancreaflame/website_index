@@ -62,9 +62,6 @@ const RandomLink = ({ intl, itemObj }) => {
                   data-ad-client="ca-pub-1672485794665632"
                   data-ad-slot="7573305246"
                 ></ins>
-                <script>
-                  (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
               </>
             ) : (
               itemObj &&
